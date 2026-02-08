@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Surprise For You ❤️</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Floating hearts */
+.heart {
+  position: fixed;
+  bottom: -20px;
+  font-size: 20px;
+  animation: floatUp 6s linear infinite;
+  opacity: 0.8;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-110vh);
+    opacity: 0;
+  }
+}
+</style>
+</head>
+<body>
+<audio id="music1" src="song1.mp3"></audio>
+<audio id="music2" src="song2.mp3"></audio>
+
+<!-- SLIDE 1 -->
+<div class="slide active">
+    <h1>A Small Surprise For You My Love 💝</h1>
+    <p>I hope you love this🤞💞</p>
+    <img src="images/teddy.png" class="img">
+    <button onclick="playMusic(); nextSlide()">SURPRISE🎁</button>
+</div>
+
+<!-- SLIDE 2 -->
+<div class="slide">
+    <p>
+        As you are far from me right now and I can’t express myself directly 🥺  
+        <br><br>
+        So I decided to say it in this way my darling 🥰  
+        <br><br>
+        ARE YOU READY BABY🤗(ahhhh I'm nervous)👉👈
+    </p>
+    <button onclick="playMusic(); nextSlide()">I'm here once you are ready 💌</button>
+</div>
+
+<!-- SLIDE 3 -->
+<div class="slide">
+    <img src="images/slide3.png" class="slide-img">
+    <h2>Way to your bubu’s heart my dudu 💕</h2>
+    <button onclick="playMusic(); nextSlide()">My Heart For You 🌍❤️</button>
+</div>
+
+<!-- SLIDE 4 -->
+<div class="slide heart-bg" id="slide4">
+  <div class="proposal-box">
+  <h2>I LOOOOOOOOOOOOVE YOUUUUUUUUU MY BANGARAM 💖</h2>
+
+  <p>
+    From the moment you walked into my life,<br>
+    everything felt brighter and calmer💗<br><br>
+
+    My life got a new hope and colours🌈<br>
+    You became my safe place💕 my biggest smile😊<br>
+    and the person I want to tell everything to💓🍾<br><br>
+
+    Loving you feels natural, effortless, and right🎀🫶🏻<br>
+    You are the reason my bad days feel lighter🍀<br>
+    and my good days feel even better❤️❤️❤️❤️❤️❤️<br><br>
+
+    It felt like I finally got a person to rely on❤️‍🩹🌹🎐<br>
+    With you, love feels warm, safe, and magical🪄🧸✨️<br><br>
+
+    I want to choose you every day🩷🩷🩷<br>
+    through every smile🎉 every challenge🎊 every dream🥳<br>
+    all ups and downs🤝 no matter what🫂❤️<br><br>
+
+    <strong>
+           So here I am, asking from the deepest part of my heart💐<br>
+             Will you be my Husband forever?💍❤️
+    </strong>
+  </p>
+
+    <div class="center-btn">
+  <button onclick="playMusic(); nextSlide()">My Proposal For You 💍</button>
+</div>
+
+</div>   <!-- closes proposal-box -->
+
+</div>   <!-- closes SLIDE 4 -->
+
+<!-- SLIDE 5 -->
+<div class="slide">
+    <img src="images/propose.png" class="img">
+    <h2>Will you be my Valentine? 💍❤️</h2>
+    <button type="button" onclick="playMusic(); goToSlide(6)">Yes 💍</button>
+    <button id="noBtn">No🥱</button>
+
+</div>
+
+<!-- SLIDE 6 -->
+<div class="slide" id="slide6">
+  <h1>YAYYYYY 💖💋</h1>
+  <img src="images/kiss.png" width="250">
+  <p>
+    I already know you love me baby 🥹💕
+    I'm actually missing you🥺
+    But no worries nuv vachaka manchiga🤤💋
+    Once again I LOVE YOU MY BABY ❤️❤️❤️❤️❤️❤️   
+    <br><br>
+    With all my love,  
+    YOUR WIFEY❤️💍
+  </p>
+</div>
+
+<script src="script.js"></script>
+<script>
+function createHeart() {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerHTML = "💗";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = Math.random() * 20 + 15 + "px";
+  document.body.appendChild(heart);
+
+  setTimeout(() => heart.remove(), 6000);
+}
+
+setInterval(createHeart, 500);
+</script>
+
+<script>
+const noBtn = document.getElementById("noBtn");
+
+noBtn.addEventListener("mouseover", () => {
+  const x = Math.random() * 200 - 100;
+  const y = Math.random() * 200 - 100;
+  noBtn.style.transform = `translate(${x}px, ${y}px)`;
+});
+</script>
+
+<script>
+function goToSlide(n) {
+  document.querySelectorAll(".slide").forEach(slide => {
+    slide.classList.remove("active");
+  });
+
+  const targetSlide = document.getElementById("slide" + n);
+  if (targetSlide) {
+    targetSlide.classList.add("active");
+  }
+if (n === 6) {
+    startFireworks();
+  }
+}
+</script>
+
+<script>
+function startFireworks() {
+  const fireworks = ["🎆", "✨", "💥", "🎇"];
+
+  const interval = setInterval(() => {
+    const fw = document.createElement("div");
+    fw.className = "firework";
+    fw.innerHTML = fireworks[Math.floor(Math.random() * fireworks.length)];
+    fw.style.left = Math.random() * 100 + "vw";
+    fw.style.fontSize = Math.random() * 20 + 20 + "px";
+
+    document.body.appendChild(fw);
+
+    setTimeout(() => fw.remove(), 2000);
+  }, 300);
+
+  // Stop fireworks after 6 seconds
+  setTimeout(() => clearInterval(interval), 6000);
+}
+</script>
+
+<script>
+let musicStarted = false;
+
+function playMusic() {
+  if (!musicStarted) {
+    const song1 = document.getElementById("music1");
+    const song2 = document.getElementById("music2");
+
+    // Set volume (optional)
+    song1.volume = 0.5;
+    song2.volume = 0.5;
+
+    // Play first song
+    song1.play();
+
+    // When song1 ends, play song2
+    song1.addEventListener("ended", () => {
+      song2.play();
+    });
+
+    musicStarted = true;
+  }
+}
+</script>
+</body>
+</html>
